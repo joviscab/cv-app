@@ -46,7 +46,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 1.8em;
   line-height: 1.1;
 }
 
@@ -75,7 +75,7 @@ button:focus-visible {
   display: grid;
   height: 100vh;
   width: 100vw;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 25% 75%;
 }
 
 .form-section {
@@ -92,6 +92,7 @@ textarea {
 }
 
 .form-section {
+  color: #ddd;
 }
 
 .expandable-header {
@@ -152,8 +153,6 @@ textarea {
 .curriculum-container {
   padding: 20px;
   box-sizing: border-box;
-  grid-template-columns: 2 / 3;
-  grid-template-rows: 1 / 5;
   border: 1px solid #ddd;
   width: 210mm;
   height: 297mm;
@@ -161,6 +160,47 @@ textarea {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background: white;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  grid-template-rows: repeat(10, 10%);
+}
+
+.nameCV {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+}
+
+.languageCV {
+  grid-column: 1 / 2;
+  grid-row: 7 / 8;
+}
+
+.workCV {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+}
+
+.academicCV {
+  grid-column: 2 / 4;
+  grid-row: 4 / 5;
+}
+
+.professionalCV {
+  grid-column: 2 / 3;
+  grid-row: 7 / 8;
+}
+
+.digitalCV {
+  grid-column: 3 / 4;
+  grid-row: 7 / 8;
+}
+
+.emailCV {
+  grid-column: 1 / 2;
+  grid-row: 6 / 7;
+}
+
+.phoneCV {
+  grid-column: 1 / 2;
+  grid-row: 5 / 6;
 }

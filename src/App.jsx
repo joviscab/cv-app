@@ -17,7 +17,7 @@ function App() {
 
   const [languageInput, setLanguageInput] = useState("");
   const [formVisibility, setFormVisibility] = useState({
-    name: false,
+    name: true,
     email: false,
     phone: false,
     education: false,

@@ -21,6 +21,10 @@
   padding: 0;
 }
 
+ul {
+  list-style-type: none;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -56,6 +60,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  height: fit-content;
+  width: fit-content;
 }
 button:hover {
   border-color: #646cff;
@@ -69,10 +75,10 @@ button:focus-visible {
   display: grid;
   height: 100vh;
   width: 100vw;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 20% 80%;
 }
 
-.form-container {
+.form-section {
   padding: 20px;
   border-right: 1px solid #ccc;
   box-sizing: border-box;
@@ -81,4 +87,71 @@ button:focus-visible {
 .curriculum-container {
   padding: 20px;
   box-sizing: border-box;
+  grid-template-columns: 2 / 3;
+  grid-template-rows: 1 / 5;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.form-section {
+}
+
+.expandable-header {
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #ffffff;
+  margin: 0;
+  padding: 10px;
+  background-color: #1a1a1a;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  transition: border-color 0.25s;
+}
+
+.expandable-header:hover {
+  border-color: #646cff;
+}
+.expandable-header:focus,
+.expandable-header:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.form-content {
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+  border-top: 1px solid #ddd;
+}
+
+.form-content.visible {
+  max-height: 500px;
+  opacity: 1;
+  padding: 10px;
+}
+
+.form-content input,
+.form-content textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.form-content li {
+  padding: 5px 0;
+}
+
+.add-language-button {
+  margin-top: 10px;
 }

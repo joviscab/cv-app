@@ -13,6 +13,7 @@ function App() {
     proComp: "",
     digComp: "",
     languages: [],
+    image: "",
   });
 
   const [languageInput, setLanguageInput] = useState("");
@@ -25,6 +26,7 @@ function App() {
     proComp: false,
     digComp: false,
     languages: false,
+    image: false, // Added image visibility state
   });
 
   const handleInputChange = (e) => {
@@ -54,6 +56,20 @@ function App() {
       ...prevState,
       [section]: !prevState[section],
     }));
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setCurriculumData((prevState) => ({
+          ...prevState,
+          image: reader.result,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -244,6 +260,21 @@ function App() {
             >
               Add Language
             </button>
+          </div>
+        </div>
+
+        <div className="form-section">
+          <h3
+            onClick={() => toggleSectionVisibility("image")}
+            className="expandable-header"
+          >
+            {formVisibility.image ? "Hide Image Upload" : "Expand Image Upload"}
+          </h3>
+          <div
+            className={`form-content ${formVisibility.image ? "visible" : ""}`}
+          >
+            <label>Upload Image:</label>
+            <input type="file" accept="image/*" onChange={handleImageUpload} />
           </div>
         </div>
       </div>

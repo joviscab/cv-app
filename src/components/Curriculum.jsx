@@ -3,6 +3,11 @@ import React from "react";
 function Curriculum({ data }) {
   return (
     <>
+      {data.image && (
+        <div className="profile-image-container">
+          <img src={data.image} alt="Profile" className="profile-image" />
+        </div>
+      )}
       <h1 className="nameCV">{data.name}</h1>
       <p className="emailCV">Email: {data.email}</p>
       <p className="phoneCV">Phone: {data.phone}</p>

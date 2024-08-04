@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -84,13 +84,6 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
-.curriculum-container {
-  padding: 20px;
-  box-sizing: border-box;
-  grid-template-columns: 2 / 3;
-  grid-template-rows: 1 / 5;
-}
-
 textarea {
   width: 100%;
   min-height: 100px;
@@ -154,4 +147,20 @@ textarea {
 
 .add-language-button {
   margin-top: 10px;
+}
+
+.curriculum-container {
+  padding: 20px;
+  box-sizing: border-box;
+  grid-template-columns: 2 / 3;
+  grid-template-rows: 1 / 5;
+  border: 1px solid #ddd;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }

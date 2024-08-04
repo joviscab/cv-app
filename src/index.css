@@ -11,6 +11,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -24,6 +32,9 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -54,15 +65,20 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.App {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 30% 70%;
+}
+
+.form-container {
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.curriculum-container {
+  padding: 20px;
+  box-sizing: border-box;
 }

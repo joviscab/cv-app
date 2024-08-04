@@ -1,26 +1,34 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import sorriso from "./img/sorriso.jpg";
-import "./App.css";
+import Form from "../src/components/Form.jsx";
+import Curriculum from "../src/components/Curriculum.jsx";
+import "../src/styles/App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [curriculumData, setCurriculumData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    education: "",
+    experience: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCurriculumData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   return (
-    <>
-      <div>
-        <br />
-        <img
-          src={sorriso}
-          className="doggo"
-          alt="The most beautiful dog in the world"
-          width={400}
-          height={400}
-        />
+    <div className="App">
+      <div className="form-container">
+        <Form data={curriculumData} onInputChange={handleInputChange} />
       </div>
-      <h1>Sorrisinho</h1>
-      <p>The most beautiful doggo in the world!</p>
-    </>
+      <div className="curriculum-container">
+        <Curriculum data={curriculumData} />
+      </div>
+    </div>
   );
 }
 

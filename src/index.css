@@ -175,24 +175,49 @@ textarea {
   grid-row: 7 / 8;
 }
 
+.langContentCV {
+  grid-column: 1 / 2;
+  grid-row: 8 / 9;
+}
+
 .workCV {
   grid-column: 2 / 4;
   grid-row: 2 / 3;
 }
 
+.workContentCV {
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
+}
+
 .academicCV {
   grid-column: 2 / 4;
-  grid-row: 4 / 5;
+  grid-row: 5 / 6;
+}
+
+.academicContentCV {
+  grid-column: 2 / 4;
+  grid-row: 6 / 8;
 }
 
 .professionalCV {
   grid-column: 2 / 3;
-  grid-row: 7 / 8;
+  grid-row: 8 / 9;
+}
+
+.proContentCV {
+  grid-column: 2 / 3;
+  grid-row: 9 / 10;
 }
 
 .digitalCV {
   grid-column: 3 / 4;
-  grid-row: 7 / 8;
+  grid-row: 8 / 9;
+}
+
+.digContentCV {
+  grid-column: 3 / 4;
+  grid-row: 9 / 10;
 }
 
 .emailCV {

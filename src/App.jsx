@@ -4,16 +4,17 @@ import Curriculum from "../src/components/Curriculum.jsx";
 import "../src/styles/App.css";
 
 function App() {
+  const defaultImage = "/img/sorriso.jpg";
   const [curriculumData, setCurriculumData] = useState({
-    name: "",
-    email: "",
-    phone: "",
+    name: "Sorriso Pérez Schmutzler",
+    email: "joviscab@gmail.com",
+    phone: "+34 123 456 789",
     education: "",
     experience: "",
     proComp: "",
     digComp: "",
     languages: [],
-    image: "",
+    image: defaultImage,
   });
 
   const [languageInput, setLanguageInput] = useState("");
@@ -26,7 +27,7 @@ function App() {
     proComp: false,
     digComp: false,
     languages: false,
-    image: false, // Added image visibility state
+    image: false,
   });
 
   const handleInputChange = (e) => {

@@ -4,6 +4,13 @@ import React, { useState } from "react";
 
 function Form({ curriculumData, setCurriculumData }) {
   const [languageInput, setLanguageInput] = useState("");
+  const [education, setEducation] = useState({
+    institution: "",
+    title: "",
+    date: "",
+  });
+  const [educationList, setEducationList] = useState([]);
+
   const [formVisibility, setFormVisibility] = useState({
     name: true,
     email: false,
@@ -35,6 +42,31 @@ function Form({ curriculumData, setCurriculumData }) {
         languages: [...prevState.languages, languageInput.trim()],
       }));
       setLanguageInput("");
+    }
+  };
+
+  const handleEducationChange = (e) => {
+    const { name, value } = e.target;
+    setEducation((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const addEducation = () => {
+    const { institution, title, date } = education;
+    if (institution.trim() && title.trim() && date.trim()) {
+      const newEducationList = [...educationList, { institution, title, date }];
+      setEducationList(newEducationList);
+      setEducation({
+        institution: "",
+        title: "",
+        date: "",
+      });
+      setCurriculumData((prevState) => ({
+        ...prevState,
+        education: newEducationList,
+      }));
     }
   };
 
@@ -111,14 +143,34 @@ function Form({ curriculumData, setCurriculumData }) {
             )}
             {section === "education" && (
               <>
-                <label>Academic Experience:</label>
-                <textarea
-                  name="education"
-                  value={curriculumData.education}
-                  onChange={handleInputChange}
-                  rows="6"
-                  cols="30"
+                <label>Institution Name:</label>
+                <input
+                  type="text"
+                  name="institution"
+                  value={education.institution}
+                  onChange={handleEducationChange}
                 />
+                <label>Title of Study:</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={education.title}
+                  onChange={handleEducationChange}
+                />
+                <label>Date of Study:</label>
+                <input
+                  type="text"
+                  name="date"
+                  value={education.date}
+                  onChange={handleEducationChange}
+                />
+                <button
+                  className="add-education-button"
+                  type="button"
+                  onClick={addEducation}
+                >
+                  Add Education
+                </button>
               </>
             )}
             {section === "experience" && (

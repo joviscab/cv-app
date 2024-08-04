@@ -10,7 +10,7 @@ function App() {
     name: "Sorriso Pérez Schmutzler",
     email: "joviscab@gmail.com",
     phone: "+34 123 456 789",
-    education: "",
+    education: [],
     experience: "",
     proComp: "",
     digComp: "",

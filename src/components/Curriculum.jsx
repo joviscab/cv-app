@@ -14,7 +14,15 @@ function Curriculum({ data }) {
       <h2 className="workCV">Work Experience</h2>
       <p className="workContentCV">{data.experience}</p>
       <h2 className="academicCV">Academic Experience</h2>
-      <p className="academicContentCV">{data.education}</p>
+      <ul className="academicContentCV">
+        {data.education.map((edu, index) => (
+          <li key={index}>
+            <strong>Institution:</strong> {edu.institution} <br />
+            <strong>Title:</strong> {edu.title} <br />
+            <strong>Date:</strong> {edu.date}
+          </li>
+        ))}
+      </ul>
       <h2 className="professionalCV">Professional Competencies</h2>
       <p className="proContentCV">{data.proComp}</p>
       <h2 className="digitalCV">Digital Competencies</h2>

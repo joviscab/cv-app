@@ -44,7 +44,11 @@ function Curriculum({ data }) {
         ))}
       </ul>
       <h2 className="digitalCV">Digital Competencies</h2>
-      <p className="digContentCV">{data.digComp}</p>
+      <ul className="digContentCV">
+        {data.digComp.map((dig, index) => (
+          <li key={index}>{dig}</li>
+        ))}
+      </ul>
       <h2 className="languageCV">Languages</h2>
       <ul className="langContentCV">
         {data.languages.map((language, index) => (

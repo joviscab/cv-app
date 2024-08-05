@@ -7,6 +7,9 @@ function Form({ curriculumData, setCurriculumData }) {
   const [proCompInput, setProCompInput] = useState("");
   const [editingProCompIndex, setEditingProCompIndex] = useState(null);
 
+  const [digCompInput, setDigCompInput] = useState("");
+  const [editingDigCompIndex, setEditingDigCompIndex] = useState(null);
+
   const [education, setEducation] = useState({
     institution: "",
     title: "",
@@ -101,6 +104,34 @@ function Form({ curriculumData, setCurriculumData }) {
   const editProComp = (index) => {
     setProCompInput(curriculumData.proComp[index]);
     setEditingProCompIndex(index);
+  };
+
+  const handleDigCompInputChange = (e) => {
+    setDigCompInput(e.target.value);
+  };
+
+  const addDigComp = () => {
+    if (digCompInput.trim()) {
+      setCurriculumData((prevState) => {
+        const digComp = [...prevState.digComp];
+        if (editingDigCompIndex !== null) {
+          digComp[editingDigCompIndex] = digCompInput.trim();
+          setEditingDigCompIndex(null);
+        } else {
+          digComp.push(digCompInput.trim());
+        }
+        return {
+          ...prevState,
+          digComp,
+        };
+      });
+      setDigCompInput("");
+    }
+  };
+
+  const editDigComp = (index) => {
+    setDigCompInput(curriculumData.digComp[index]);
+    setEditingDigCompIndex(index);
   };
 
   const handleEducationChange = (e) => {
@@ -432,11 +463,28 @@ function Form({ curriculumData, setCurriculumData }) {
                 <label>Digital Competencies:</label>
                 <textarea
                   name="digComp"
-                  value={curriculumData.digComp}
-                  onChange={handleInputChange}
+                  value={digCompInput}
+                  onChange={handleDigCompInputChange}
                   rows="6"
                   cols="30"
                 />
+                <button
+                  className="add-digComp-button"
+                  type="button"
+                  onClick={addDigComp}
+                >
+                  {editingDigCompIndex !== null
+                    ? "Update Digital Competencies"
+                    : "Add Digital Competencies"}
+                </button>
+                <ul>
+                  {curriculumData.digComp.map((dig, index) => (
+                    <li key={index}>
+                      {dig}{" "}
+                      <button onClick={() => editDigComp(index)}>Edit</button>
+                    </li>
+                  ))}
+                </ul>
               </>
             )}
             {section === "languages" && (

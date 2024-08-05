@@ -13,7 +13,7 @@ function App() {
     education: [],
     experience: [],
     proComp: [],
-    digComp: "",
+    digComp: [],
     languages: [],
     image: defaultImage,
   });

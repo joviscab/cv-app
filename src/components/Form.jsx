@@ -479,12 +479,11 @@ function Form({ curriculumData, setCurriculumData }) {
             {section === "proComp" && (
               <>
                 <label>Professional Competencies:</label>
-                <textarea
+                <input
+                  type="text"
                   name="proComp"
                   value={proCompInput}
                   onChange={handleProCompInputChange}
-                  rows="6"
-                  cols="30"
                 />
                 <button
                   className="add-proComp-button"
@@ -511,12 +510,11 @@ function Form({ curriculumData, setCurriculumData }) {
             {section === "digComp" && (
               <>
                 <label>Digital Competencies:</label>
-                <textarea
+                <input
+                  type="text"
                   name="digComp"
                   value={digCompInput}
                   onChange={handleDigCompInputChange}
-                  rows="6"
-                  cols="30"
                 />
                 <button
                   className="add-digComp-button"

@@ -177,6 +177,18 @@ function Form({ curriculumData, setCurriculumData }) {
     }
   };
 
+  const sectionNames = {
+    name: "Name",
+    email: "Email",
+    phone: "Phone Number",
+    education: "Studies",
+    experience: "Work Experience",
+    proComp: "Professional Competencies",
+    digComp: "Digital Competencies",
+    languages: "Languages",
+    image: "Image",
+  };
+
   return (
     <div className="form-container">
       {Object.keys(formVisibility).map((section) => (
@@ -186,8 +198,14 @@ function Form({ curriculumData, setCurriculumData }) {
             className="expandable-header"
           >
             {formVisibility[section]
-              ? `Hide ${section.charAt(0).toUpperCase() + section.slice(1)}`
-              : `Expand ${section.charAt(0).toUpperCase() + section.slice(1)}`}
+              ? `Hide ${
+                  sectionNames[section] ||
+                  section.charAt(0).toUpperCase() + section.slice(1)
+                }`
+              : `Expand ${
+                  sectionNames[section] ||
+                  section.charAt(0).toUpperCase() + section.slice(1)
+                }`}
           </h3>
           <div
             className={`form-content ${
@@ -218,7 +236,7 @@ function Form({ curriculumData, setCurriculumData }) {
             )}
             {section === "phone" && (
               <>
-                <label>Phone:</label>
+                <label>Phone Number:</label>
                 <input
                   type="tel"
                   name="phone"

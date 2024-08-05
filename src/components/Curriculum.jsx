@@ -38,7 +38,11 @@ function Curriculum({ data }) {
         ))}
       </ul>
       <h2 className="professionalCV">Professional Competencies</h2>
-      <p className="proContentCV">{data.proComp}</p>
+      <ul className="proContentCV">
+        {data.proComp.map((pro, index) => (
+          <li key={index}>{pro}</li>
+        ))}
+      </ul>
       <h2 className="digitalCV">Digital Competencies</h2>
       <p className="digContentCV">{data.digComp}</p>
       <h2 className="languageCV">Languages</h2>

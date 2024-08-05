@@ -4,6 +4,9 @@ function Form({ curriculumData, setCurriculumData }) {
   const [languageInput, setLanguageInput] = useState("");
   const [editingLanguageIndex, setEditingLanguageIndex] = useState(null);
 
+  const [proCompInput, setProCompInput] = useState("");
+  const [editingProCompIndex, setEditingProCompIndex] = useState(null);
+
   const [education, setEducation] = useState({
     institution: "",
     title: "",
@@ -70,6 +73,34 @@ function Form({ curriculumData, setCurriculumData }) {
   const editLanguage = (index) => {
     setLanguageInput(curriculumData.languages[index]);
     setEditingLanguageIndex(index);
+  };
+
+  const handleProCompInputChange = (e) => {
+    setProCompInput(e.target.value);
+  };
+
+  const addProComp = () => {
+    if (proCompInput.trim()) {
+      setCurriculumData((prevState) => {
+        const proComp = [...prevState.proComp];
+        if (editingProCompIndex !== null) {
+          proComp[editingProCompIndex] = proCompInput.trim();
+          setEditingProCompIndex(null);
+        } else {
+          proComp.push(proCompInput.trim());
+        }
+        return {
+          ...prevState,
+          proComp,
+        };
+      });
+      setProCompInput("");
+    }
+  };
+
+  const editProComp = (index) => {
+    setProCompInput(curriculumData.proComp[index]);
+    setEditingProCompIndex(index);
   };
 
   const handleEducationChange = (e) => {
@@ -372,11 +403,28 @@ function Form({ curriculumData, setCurriculumData }) {
                 <label>Professional Competencies:</label>
                 <textarea
                   name="proComp"
-                  value={curriculumData.proComp}
-                  onChange={handleInputChange}
+                  value={proCompInput}
+                  onChange={handleProCompInputChange}
                   rows="6"
                   cols="30"
                 />
+                <button
+                  className="add-proComp-button"
+                  type="button"
+                  onClick={addProComp}
+                >
+                  {editingProCompIndex !== null
+                    ? "Update Professional Competencies"
+                    : "Add Professional Competencies"}
+                </button>
+                <ul>
+                  {curriculumData.proComp.map((pro, index) => (
+                    <li key={index}>
+                      {pro}{" "}
+                      <button onClick={() => editProComp(index)}>Edit</button>
+                    </li>
+                  ))}
+                </ul>
               </>
             )}
             {section === "digComp" && (

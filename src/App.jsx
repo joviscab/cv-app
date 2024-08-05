@@ -12,7 +12,7 @@ function App() {
     phone: "+34 123 456 789",
     education: [],
     experience: [],
-    proComp: "",
+    proComp: [],
     digComp: "",
     languages: [],
     image: defaultImage,

@@ -1,5 +1,3 @@
-// src/components/Form.jsx
-
 import React, { useState } from "react";
 
 function Form({ curriculumData, setCurriculumData }) {
@@ -9,7 +7,9 @@ function Form({ curriculumData, setCurriculumData }) {
     title: "",
     date: "",
   });
+
   const [educationList, setEducationList] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
 
   const [experience, setExperience] = useState({
     position: "",
@@ -64,18 +64,43 @@ function Form({ curriculumData, setCurriculumData }) {
   const addEducation = () => {
     const { institution, title, date } = education;
     if (institution.trim() && title.trim() && date.trim()) {
-      const newEducationList = [...educationList, { institution, title, date }];
-      setEducationList(newEducationList);
+      const newEducation = { institution, title, date };
+
+      if (editingIndex !== null) {
+        const updatedEducationList = educationList.map((edu, index) =>
+          index === editingIndex ? newEducation : edu
+        );
+        setEducationList(updatedEducationList);
+        setCurriculumData((prevState) => ({
+          ...prevState,
+          education: updatedEducationList,
+        }));
+        setEditingIndex(null);
+      } else {
+        const newEducationList = [...educationList, newEducation];
+        setEducationList(newEducationList);
+        setCurriculumData((prevState) => ({
+          ...prevState,
+          education: newEducationList,
+        }));
+      }
+
       setEducation({
         institution: "",
         title: "",
         date: "",
       });
-      setCurriculumData((prevState) => ({
-        ...prevState,
-        education: newEducationList,
-      }));
     }
+  };
+
+  const editEducation = (index) => {
+    const edu = educationList[index];
+    setEducation({
+      institution: edu.institution,
+      title: edu.title,
+      date: edu.date,
+    });
+    setEditingIndex(index);
   };
 
   const handleExperienceChange = (e) => {
@@ -90,7 +115,6 @@ function Form({ curriculumData, setCurriculumData }) {
     const { position, company, date, duties } = experience;
     if (position.trim() && company.trim() && date.trim() && duties.trim()) {
       const dutiesArray = duties.split(",").map((duty) => duty.trim());
-
       const newExperienceList = [
         ...experienceList,
         { position, company, date, duties: dutiesArray },
@@ -208,8 +232,18 @@ function Form({ curriculumData, setCurriculumData }) {
                   type="button"
                   onClick={addEducation}
                 >
-                  Add Education
+                  {editingIndex !== null ? "Update Education" : "Add Education"}
                 </button>
+                <ul>
+                  {educationList.map((edu, index) => (
+                    <li key={index}>
+                      <strong>Institution:</strong> {edu.institution} <br />
+                      <strong>Title:</strong> {edu.title} <br />
+                      <strong>Date:</strong> {edu.date} <br />
+                      <button onClick={() => editEducation(index)}>Edit</button>
+                    </li>
+                  ))}
+                </ul>
               </>
             )}
             {section === "experience" && (
@@ -235,7 +269,7 @@ function Form({ curriculumData, setCurriculumData }) {
                   value={experience.date}
                   onChange={handleExperienceChange}
                 />
-                <label>Responsabilities:</label>
+                <label>Responsabilities (separated by comma):</label>
                 <input
                   type="text"
                   name="duties"

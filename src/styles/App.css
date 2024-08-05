@@ -1,42 +1,244 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  height: 100%;
+  width: 100%;
+}
+
 #root {
-  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 1.8em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  height: fit-content;
+  width: fit-content;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.App {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 25% 75%;
+}
+
+.form-section {
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.form-section {
+  color: #ddd;
+}
+
+.expandable-header {
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #ffffff;
+  margin: 0;
+  padding: 10px;
+  background-color: #1a1a1a;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  transition: border-color 0.25s;
+}
+
+.expandable-header:hover {
+  border-color: #646cff;
+}
+.expandable-header:focus,
+.expandable-header:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.form-content {
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+.form-content.visible {
+  max-height: 500px;
+  opacity: 1;
+  padding: 10px;
+}
+
+.form-content input,
+.form-content textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.form-content li {
+  padding: 5px 0;
+}
+
+.add-language-button {
+  margin-top: 10px;
+}
+
+.curriculum-container {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 210mm;
+  height: 295mm;
   margin: 0 auto;
-  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  grid-template-rows: repeat(10, 10%);
+}
+
+.nameCV {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+}
+
+.languageCV {
+  grid-column: 1 / 2;
+  grid-row: 7 / 8;
+}
+
+.langContentCV {
+  grid-column: 1 / 2;
+  grid-row: 8 / 9;
+}
+
+.workCV {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+}
+
+.workContentCV {
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
+}
+
+.academicCV {
+  grid-column: 2 / 4;
+  grid-row: 5 / 6;
+}
+
+.academicContentCV {
+  grid-column: 2 / 4;
+  grid-row: 6 / 8;
+}
+
+.professionalCV {
+  grid-column: 2 / 3;
+  grid-row: 8 / 9;
+}
+
+.proContentCV {
+  grid-column: 2 / 3;
+  grid-row: 9 / 10;
+}
+
+.digitalCV {
+  grid-column: 3 / 4;
+  grid-row: 8 / 9;
+}
+
+.digContentCV {
+  grid-column: 3 / 4;
+  grid-row: 9 / 10;
+}
+
+.emailCV {
+  grid-column: 1 / 2;
+  grid-row: 6 / 7;
+}
+
+.phoneCV {
+  grid-column: 1 / 2;
+  grid-row: 5 / 6;
+}
+
+.profile-image-container {
   text-align: center;
+  margin-bottom: 20px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.profile-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 60px;
 }

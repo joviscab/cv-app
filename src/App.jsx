@@ -4,7 +4,6 @@ import jsPDF from "jspdf";
 import { useState } from "react";
 import Form from "../src/components/Form.jsx";
 import Curriculum from "../src/components/Curriculum.jsx";
-import "../src/styles/App.css";
 
 function App() {
   const defaultImage = "/img/sorriso.jpg";

@@ -9,7 +9,7 @@ function Form({ curriculumData, setCurriculumData }) {
   });
 
   const [educationList, setEducationList] = useState([]);
-  const [editingIndex, setEditingIndex] = useState(null);
+  const [editingEducationIndex, setEditingEducationIndex] = useState(null);
 
   const [experience, setExperience] = useState({
     position: "",
@@ -18,6 +18,7 @@ function Form({ curriculumData, setCurriculumData }) {
     duties: "",
   });
   const [experienceList, setExperienceList] = useState([]);
+  const [editingExperienceIndex, setEditingExperienceIndex] = useState(null);
 
   const [formVisibility, setFormVisibility] = useState({
     name: true,
@@ -66,16 +67,16 @@ function Form({ curriculumData, setCurriculumData }) {
     if (institution.trim() && title.trim() && date.trim()) {
       const newEducation = { institution, title, date };
 
-      if (editingIndex !== null) {
+      if (editingEducationIndex !== null) {
         const updatedEducationList = educationList.map((edu, index) =>
-          index === editingIndex ? newEducation : edu
+          index === editingEducationIndex ? newEducation : edu
         );
         setEducationList(updatedEducationList);
         setCurriculumData((prevState) => ({
           ...prevState,
           education: updatedEducationList,
         }));
-        setEditingIndex(null);
+        setEditingEducationIndex(null);
       } else {
         const newEducationList = [...educationList, newEducation];
         setEducationList(newEducationList);
@@ -100,7 +101,7 @@ function Form({ curriculumData, setCurriculumData }) {
       title: edu.title,
       date: edu.date,
     });
-    setEditingIndex(index);
+    setEditingEducationIndex(index);
   };
 
   const handleExperienceChange = (e) => {
@@ -114,23 +115,45 @@ function Form({ curriculumData, setCurriculumData }) {
   const addExperience = () => {
     const { position, company, date, duties } = experience;
     if (position.trim() && company.trim() && date.trim() && duties.trim()) {
-      const dutiesArray = duties.split(",").map((duty) => duty.trim());
-      const newExperienceList = [
-        ...experienceList,
-        { position, company, date, duties: dutiesArray },
-      ];
-      setExperienceList(newExperienceList);
+      const newExperience = { position, company, date, duties };
+
+      if (editingExperienceIndex !== null) {
+        const updatedExperienceList = experienceList.map((exp, index) =>
+          index === editingExperienceIndex ? newExperience : exp
+        );
+        setExperienceList(updatedExperienceList);
+        setCurriculumData((prevState) => ({
+          ...prevState,
+          experience: updatedExperienceList,
+        }));
+        setEditingExperienceIndex(null);
+      } else {
+        const newExperienceList = [...experienceList, newExperience];
+        setExperienceList(newExperienceList);
+        setCurriculumData((prevState) => ({
+          ...prevState,
+          experience: newExperienceList,
+        }));
+      }
+
       setExperience({
         position: "",
         company: "",
         date: "",
         duties: "",
       });
-      setCurriculumData((prevState) => ({
-        ...prevState,
-        experience: newExperienceList,
-      }));
     }
+  };
+
+  const editExperience = (index) => {
+    const exp = experienceList[index];
+    setExperience({
+      position: exp.position,
+      company: exp.company,
+      date: exp.date,
+      duties: exp.duties,
+    });
+    setEditingExperienceIndex(index);
   };
 
   const toggleSectionVisibility = (section) => {
@@ -232,7 +255,9 @@ function Form({ curriculumData, setCurriculumData }) {
                   type="button"
                   onClick={addEducation}
                 >
-                  {editingIndex !== null ? "Update Education" : "Add Education"}
+                  {editingEducationIndex !== null
+                    ? "Update Education"
+                    : "Add Education"}
                 </button>
                 <ul>
                   {educationList.map((edu, index) => (
@@ -246,6 +271,7 @@ function Form({ curriculumData, setCurriculumData }) {
                 </ul>
               </>
             )}
+
             {section === "experience" && (
               <>
                 <label>Position Title:</label>
@@ -281,8 +307,28 @@ function Form({ curriculumData, setCurriculumData }) {
                   type="button"
                   onClick={addExperience}
                 >
-                  Add Experience
+                  {editingExperienceIndex !== null
+                    ? "Update Experience"
+                    : "Add Experience"}
                 </button>
+                <ul>
+                  {experienceList.map((exp, index) => (
+                    <li key={index}>
+                      <strong>Position Title:</strong> {exp.position} <br />
+                      <strong>Company:</strong> {exp.company} <br />
+                      <strong>Date:</strong> {exp.date} <br />
+                      <strong>Responsibilities:</strong>{" "}
+                      <ul>
+                        {exp.duties.split("\n").map((duty, i) => (
+                          <li key={i}>{duty}</li>
+                        ))}
+                      </ul>
+                      <button onClick={() => editExperience(index)}>
+                        Edit
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </>
             )}
             {section === "proComp" && (

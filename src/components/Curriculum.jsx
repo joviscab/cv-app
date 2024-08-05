@@ -17,11 +17,11 @@ function Curriculum({ data }) {
           <li key={index}>
             <strong>Position Title:</strong> {exp.position} <br />
             <strong>Company:</strong> {exp.company} <br />
-            <strong>Date:</strong> {exp.date}
-            <strong>Responsabilities:</strong>
+            <strong>Date:</strong> {exp.date} <br />
+            <strong>Responsibilities:</strong>
             <ul>
-              {exp.duties.map((duty, idx) => (
-                <li key={idx}>{duty}</li>
+              {exp.duties.split("\n").map((duty, i) => (
+                <li key={i}>{duty}</li>
               ))}
             </ul>
           </li>

@@ -11,7 +11,7 @@ function App() {
     email: "joviscab@gmail.com",
     phone: "+34 123 456 789",
     education: [],
-    experience: "",
+    experience: [],
     proComp: "",
     digComp: "",
     languages: [],

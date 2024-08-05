@@ -11,6 +11,14 @@ function Form({ curriculumData, setCurriculumData }) {
   });
   const [educationList, setEducationList] = useState([]);
 
+  const [experience, setExperience] = useState({
+    position: "",
+    company: "",
+    date: "",
+    duties: "",
+  });
+  const [experienceList, setExperienceList] = useState([]);
+
   const [formVisibility, setFormVisibility] = useState({
     name: true,
     email: false,
@@ -66,6 +74,37 @@ function Form({ curriculumData, setCurriculumData }) {
       setCurriculumData((prevState) => ({
         ...prevState,
         education: newEducationList,
+      }));
+    }
+  };
+
+  const handleExperienceChange = (e) => {
+    const { name, value } = e.target;
+    setExperience((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const addExperience = () => {
+    const { position, company, date, duties } = experience;
+    if (position.trim() && company.trim() && date.trim() && duties.trim()) {
+      const dutiesArray = duties.split(",").map((duty) => duty.trim());
+
+      const newExperienceList = [
+        ...experienceList,
+        { position, company, date, duties: dutiesArray },
+      ];
+      setExperienceList(newExperienceList);
+      setExperience({
+        position: "",
+        company: "",
+        date: "",
+        duties: "",
+      });
+      setCurriculumData((prevState) => ({
+        ...prevState,
+        experience: newExperienceList,
       }));
     }
   };
@@ -175,14 +214,41 @@ function Form({ curriculumData, setCurriculumData }) {
             )}
             {section === "experience" && (
               <>
-                <label>Work Experience:</label>
-                <textarea
-                  name="experience"
-                  value={curriculumData.experience}
-                  onChange={handleInputChange}
-                  rows="6"
-                  cols="30"
+                <label>Position Title:</label>
+                <input
+                  type="text"
+                  name="position"
+                  value={experience.position}
+                  onChange={handleExperienceChange}
                 />
+                <label>Company Name:</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={experience.company}
+                  onChange={handleExperienceChange}
+                />
+                <label>Date (from - until):</label>
+                <input
+                  type="text"
+                  name="date"
+                  value={experience.date}
+                  onChange={handleExperienceChange}
+                />
+                <label>Responsabilities:</label>
+                <input
+                  type="text"
+                  name="duties"
+                  value={experience.duties}
+                  onChange={handleExperienceChange}
+                />
+                <button
+                  className="add-experience-button"
+                  type="button"
+                  onClick={addExperience}
+                >
+                  Add Experience
+                </button>
               </>
             )}
             {section === "proComp" && (

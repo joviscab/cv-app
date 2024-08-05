@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 function Form({ curriculumData, setCurriculumData }) {
   const [languageInput, setLanguageInput] = useState("");
+  const [editingLanguageIndex, setEditingLanguageIndex] = useState(null);
+
   const [education, setEducation] = useState({
     institution: "",
     title: "",
@@ -46,12 +48,28 @@ function Form({ curriculumData, setCurriculumData }) {
 
   const addLanguage = () => {
     if (languageInput.trim()) {
-      setCurriculumData((prevState) => ({
-        ...prevState,
-        languages: [...prevState.languages, languageInput.trim()],
-      }));
+      setCurriculumData((prevState) => {
+        const languages = [...prevState.languages];
+        if (editingLanguageIndex !== null) {
+          // Update existing language
+          languages[editingLanguageIndex] = languageInput.trim();
+          setEditingLanguageIndex(null); // Reset index after editing
+        } else {
+          // Add new language
+          languages.push(languageInput.trim());
+        }
+        return {
+          ...prevState,
+          languages,
+        };
+      });
       setLanguageInput("");
     }
+  };
+
+  const editLanguage = (index) => {
+    setLanguageInput(curriculumData.languages[index]);
+    setEditingLanguageIndex(index);
   };
 
   const handleEducationChange = (e) => {
@@ -386,15 +404,21 @@ function Form({ curriculumData, setCurriculumData }) {
                   type="button"
                   onClick={addLanguage}
                 >
-                  Add Language
+                  {editingLanguageIndex !== null
+                    ? "Update Language"
+                    : "Add Language"}
                 </button>
                 <ul>
                   {curriculumData.languages.map((lang, index) => (
-                    <li key={index}>{lang}</li>
+                    <li key={index}>
+                      {lang}{" "}
+                      <button onClick={() => editLanguage(index)}>Edit</button>
+                    </li>
                   ))}
                 </ul>
               </>
             )}
+
             {section === "image" && (
               <>
                 <label>Upload Image:</label>

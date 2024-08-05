@@ -70,6 +70,16 @@ function Form({ curriculumData, setCurriculumData }) {
     }
   };
 
+  const removeLanguage = (index) => {
+    const newLanguageList = curriculumData.languages.filter(
+      (_, i) => i !== index
+    );
+    setCurriculumData((prevState) => ({
+      ...prevState,
+      languages: newLanguageList,
+    }));
+  };
+
   const editLanguage = (index) => {
     setLanguageInput(curriculumData.languages[index]);
     setEditingLanguageIndex(index);
@@ -98,6 +108,14 @@ function Form({ curriculumData, setCurriculumData }) {
     }
   };
 
+  const removeProComp = (index) => {
+    const newProCompList = curriculumData.proComp.filter((_, i) => i !== index);
+    setCurriculumData((prevState) => ({
+      ...prevState,
+      proComp: newProCompList,
+    }));
+  };
+
   const editProComp = (index) => {
     setProCompInput(curriculumData.proComp[index]);
     setEditingProCompIndex(index);
@@ -124,6 +142,14 @@ function Form({ curriculumData, setCurriculumData }) {
       });
       setDigCompInput("");
     }
+  };
+
+  const removeDigComp = (index) => {
+    const newDigCompList = curriculumData.digComp.filter((_, i) => i !== index);
+    setCurriculumData((prevState) => ({
+      ...prevState,
+      digComp: newDigCompList,
+    }));
   };
 
   const editDigComp = (index) => {
@@ -169,6 +195,15 @@ function Form({ curriculumData, setCurriculumData }) {
         date: "",
       });
     }
+  };
+
+  const removeEducation = (index) => {
+    const newEducationList = educationList.filter((_, i) => i !== index);
+    setEducationList(newEducationList);
+    setCurriculumData((prevState) => ({
+      ...prevState,
+      education: newEducationList,
+    }));
   };
 
   const editEducation = (index) => {
@@ -220,6 +255,15 @@ function Form({ curriculumData, setCurriculumData }) {
         duties: "",
       });
     }
+  };
+
+  const removeExperience = (index) => {
+    const newExperienceList = experienceList.filter((_, i) => i !== index);
+    setExperienceList(newExperienceList);
+    setCurriculumData((prevState) => ({
+      ...prevState,
+      experience: newExperienceList,
+    }));
   };
 
   const editExperience = (index) => {
@@ -356,6 +400,9 @@ function Form({ curriculumData, setCurriculumData }) {
                       <strong>Title:</strong> {edu.title} <br />
                       <strong>Date:</strong> {edu.date} <br />
                       <button onClick={() => editEducation(index)}>Edit</button>
+                      <button onClick={() => removeEducation(index)}>
+                        Remove
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -416,6 +463,9 @@ function Form({ curriculumData, setCurriculumData }) {
                       <button onClick={() => editExperience(index)}>
                         Edit
                       </button>
+                      <button onClick={() => removeExperience(index)}>
+                        Remove
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -445,6 +495,9 @@ function Form({ curriculumData, setCurriculumData }) {
                     <li key={index}>
                       {pro}{" "}
                       <button onClick={() => editProComp(index)}>Edit</button>
+                      <button onClick={() => removeProComp(index)}>
+                        Remove
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -474,6 +527,9 @@ function Form({ curriculumData, setCurriculumData }) {
                     <li key={index}>
                       {dig}{" "}
                       <button onClick={() => editDigComp(index)}>Edit</button>
+                      <button onClick={() => removeDigComp(index)}>
+                        Remove
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -501,6 +557,9 @@ function Form({ curriculumData, setCurriculumData }) {
                     <li key={index}>
                       {lang}{" "}
                       <button onClick={() => editLanguage(index)}>Edit</button>
+                      <button onClick={() => removeLanguage(index)}>
+                        Remove
+                      </button>
                     </li>
                   ))}
                 </ul>

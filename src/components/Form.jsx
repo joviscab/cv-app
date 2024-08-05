@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Form({ curriculumData, setCurriculumData }) {
   const [languageInput, setLanguageInput] = useState("");
   const [editingLanguageIndex, setEditingLanguageIndex] = useState(null);
+
+  useEffect(() => {
+    setEducationList(curriculumData.education || []);
+    setExperienceList(curriculumData.experience || []);
+  }, [curriculumData.education, curriculumData.experience]);
 
   const [proCompInput, setProCompInput] = useState("");
   const [editingProCompIndex, setEditingProCompIndex] = useState(null);

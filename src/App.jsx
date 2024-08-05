@@ -10,13 +10,63 @@ function App() {
 
   const [curriculumData, setCurriculumData] = useState({
     name: "Sorriso Pérez Schmutzler",
-    email: "joviscab@gmail.com",
+    email: "sorriso.perez.schmutzler@dogmail.com",
     phone: "+34 123 456 789",
-    education: [],
-    experience: [],
-    proComp: [],
-    digComp: [],
-    languages: [],
+    education: [
+      {
+        institution: "Bark University",
+        title: "Bachelor of Canine Behavior",
+        date: "2014 - 2018",
+      },
+      {
+        institution: "Woofington Institute of Technology",
+        title: "Master of Advanced Fetch Techniques",
+        date: "2018 - 2020",
+      },
+      {
+        institution: "Pawbridge University",
+        title: "PhD in Treatology",
+        date: "2020 - 2023",
+      },
+    ],
+    experience: [
+      {
+        position: "Chief Barketing Officer",
+        company: "Barking Mad Inc.",
+        date: "2019 - 2021",
+        duties:
+          "Lead barketing campaigns\nIncrease tail wags per minute\nDevelop paw-sitive brand image",
+      },
+      {
+        position: "Head of Toy R&D",
+        company: "Fetch Labs",
+        date: "2021 - 2022",
+        duties:
+          "Design innovative chew toys\nTest durability with rigorous play sessions\nOptimize squeaker placement",
+      },
+      {
+        position: "Senior Sniffing Specialist",
+        company: "Sniffology Corp.",
+        date: "2022 - Present",
+        duties:
+          "Conduct scent research\nDevelop new sniffing techniques\nLead scent-based training workshops",
+      },
+    ],
+    proComp: [
+      "Expert in tail wag communication",
+      "Advanced trick training",
+      "Paw-sitive reinforcement techniques",
+      "Leash-free leadership",
+      "Bark-to-human translation",
+    ],
+    digComp: [
+      "Proficient in Dogbook and BarkIn",
+      "Advanced treat tracking algorithms",
+      "Expert in online fetch simulation games",
+      "Mastery of virtual belly rub applications",
+      "Paw-sitive feedback loops in digital training",
+    ],
+    languages: ["Bark", "Spanish", "Portuguese"],
     image: defaultImage,
   });
 

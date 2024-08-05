@@ -122,6 +122,7 @@ textarea {
   max-height: 0;
   opacity: 0;
   padding: 0 10px;
+  overflow-y: auto;
 }
 
 .form-content.visible {

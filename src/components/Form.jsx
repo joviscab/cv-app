@@ -29,15 +29,12 @@ function Form({ curriculumData, setCurriculumData }) {
   const [editingExperienceIndex, setEditingExperienceIndex] = useState(null);
 
   const [formVisibility, setFormVisibility] = useState({
-    name: true,
-    email: false,
-    phone: false,
+    personalInfo: true,
     education: false,
     experience: false,
     proComp: false,
     digComp: false,
     languages: false,
-    image: false,
   });
 
   const handleInputChange = (e) => {
@@ -258,15 +255,12 @@ function Form({ curriculumData, setCurriculumData }) {
   };
 
   const sectionNames = {
-    name: "Name",
-    email: "Email",
-    phone: "Phone Number",
+    personalInfo: "Personal Info",
     education: "Studies",
     experience: "Work Experience",
     proComp: "Professional Competencies",
     digComp: "Digital Competencies",
     languages: "Languages",
-    image: "Image",
   };
 
   return (
@@ -292,7 +286,7 @@ function Form({ curriculumData, setCurriculumData }) {
               formVisibility[section] ? "visible" : ""
             }`}
           >
-            {section === "name" && (
+            {section === "personalInfo" && (
               <>
                 <label>Name:</label>
                 <input
@@ -301,10 +295,6 @@ function Form({ curriculumData, setCurriculumData }) {
                   value={curriculumData.name}
                   onChange={handleInputChange}
                 />
-              </>
-            )}
-            {section === "email" && (
-              <>
                 <label>Email:</label>
                 <input
                   type="email"
@@ -312,16 +302,18 @@ function Form({ curriculumData, setCurriculumData }) {
                   value={curriculumData.email}
                   onChange={handleInputChange}
                 />
-              </>
-            )}
-            {section === "phone" && (
-              <>
                 <label>Phone Number:</label>
                 <input
                   type="tel"
                   name="phone"
                   value={curriculumData.phone}
                   onChange={handleInputChange}
+                />
+                <label>Upload Image:</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
                 />
               </>
             )}
@@ -512,17 +504,6 @@ function Form({ curriculumData, setCurriculumData }) {
                     </li>
                   ))}
                 </ul>
-              </>
-            )}
-
-            {section === "image" && (
-              <>
-                <label>Upload Image:</label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                />
               </>
             )}
           </div>

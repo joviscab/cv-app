@@ -22,7 +22,7 @@
 }
 
 ul {
-  list-style-type: none;
+  /* list-style-type: none; */
 }
 
 a {
@@ -163,7 +163,103 @@ button:focus-visible {
   overflow: hidden;
   display: grid;
   grid-template-columns: 40% 30% 30%;
-  grid-template-rows: repeat(10, 10%);
+  grid-template-rows: repeat(50, 2%);
+}
+
+.circle {
+  width: 290px;
+  height: 1050px;
+  background: rgb(255, 0, 0);
+  -moz-border-radius: 70px;
+  -webkit-border-radius: 70px;
+  border-radius: 150px;
+  z-index: 1;
+  grid-column: 1 / 2;
+  grid-row: 1 / 20;
+  display: flex;
+  justify-self: center;
+}
+
+.profile-image-container {
+  text-align: center;
+  margin-bottom: 20px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 5;
+  z-index: 2;
+}
+
+.profile-image {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 20px;
+  z-index: 2;
+}
+
+.aboutCV {
+  grid-column: 1 / 2;
+  grid-row: 12 / 13;
+  text-align: center;
+  font-size: 18px;
+  z-index: 2;
+  margin-top: 5px;
+}
+
+.bioCV {
+  grid-column: 1 / 2;
+  grid-row: 13 / 36;
+  font-size: 15px;
+  display: flex;
+  text-align: center;
+  z-index: 2;
+  margin: 10px;
+}
+
+.contactCV {
+  grid-column: 1 / 2;
+  grid-row: 36 / 37;
+  font-size: 18px;
+  text-align: center;
+  z-index: 2;
+}
+
+.emailCV {
+  grid-column: 1 / 2;
+  grid-row: 37 / 38;
+  font-size: 15px;
+  display: flex;
+  text-align: center;
+  z-index: 2;
+}
+
+.phoneCV {
+  grid-column: 1 / 2;
+  grid-row: 39 / 40;
+  font-size: 15px;
+  text-align: center;
+  z-index: 2;
+}
+
+.languageCV {
+  grid-column: 1 / 2;
+  grid-row: 42 / 43;
+  font-size: 18px;
+  text-align: center;
+  z-index: 2;
+}
+
+.langContentCV {
+  grid-column: 1 / 2;
+  grid-row: 44 / 46;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
 }
 
 .nameCV {
@@ -171,77 +267,48 @@ button:focus-visible {
   grid-row: 1 / 2;
 }
 
-.languageCV {
-  grid-column: 1 / 2;
-  grid-row: 7 / 8;
-}
-
-.langContentCV {
-  grid-column: 1 / 2;
-  grid-row: 8 / 9;
-}
-
 .workCV {
   grid-column: 2 / 4;
   grid-row: 2 / 3;
+  font-size: 18px;
 }
 
 .workContentCV {
   grid-column: 2 / 4;
   grid-row: 3 / 4;
+  font-size: 10px;
 }
 
 .academicCV {
   grid-column: 2 / 4;
-  grid-row: 5 / 6;
+  grid-row: 9 / 10;
+  font-size: 18px;
 }
 
 .academicContentCV {
   grid-column: 2 / 4;
-  grid-row: 6 / 8;
+  grid-row: 10 / 11;
+  font-size: 10px;
 }
 
 .professionalCV {
   grid-column: 2 / 3;
-  grid-row: 8 / 9;
+  grid-row: 15 / 16;
+  font-size: 18px;
 }
 
 .proContentCV {
   grid-column: 2 / 3;
-  grid-row: 9 / 10;
+  grid-row: 17 / 20;
 }
 
 .digitalCV {
   grid-column: 3 / 4;
-  grid-row: 8 / 9;
+  grid-row: 15 / 16;
+  font-size: 18px;
 }
 
 .digContentCV {
   grid-column: 3 / 4;
-  grid-row: 9 / 10;
-}
-
-.emailCV {
-  grid-column: 1 / 2;
-  grid-row: 6 / 7;
-}
-
-.phoneCV {
-  grid-column: 1 / 2;
-  grid-row: 5 / 6;
-}
-
-.profile-image-container {
-  text-align: center;
-  margin-bottom: 20px;
-  grid-column: 1 / 2;
-  grid-row: 1 / 4;
-}
-
-.profile-image {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  padding: 60px;
+  grid-row: 17 / 20;
 }

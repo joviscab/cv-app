@@ -9,9 +9,14 @@ function Curriculum({ data }) {
         </div>
       )}
       <h1 className="nameCV">{data.name}</h1>
+      <div className="circle"></div>
+      <h1 className="aboutCV">About me</h1>
       <p className="bioCV">{data.bio}</p>
+      <h1 className="contactCV">Contact</h1>
       <p className="emailCV">Email: {data.email}</p>
-      <p className="phoneCV">Phone: {data.phone}</p>
+      <p className="phoneCV">
+        Phone: <br /> {data.phone}
+      </p>
       <h2 className="workCV">Work Experience</h2>
       <ul className="workContentCV">
         {data.experience.map((exp, index) => (

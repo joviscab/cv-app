@@ -4,9 +4,7 @@ function Curriculum({ data }) {
   return (
     <>
       {data.image && (
-        <div className="profile-image-container">
-          <img src={data.image} alt="Profile" className="profile-image" />
-        </div>
+        <img src={data.image} alt="Profile" className="profile-image" />
       )}
       <div className="circle"></div>
       <h1 className="aboutCV">About me</h1>

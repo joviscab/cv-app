@@ -339,7 +339,7 @@ function Form({ curriculumData, setCurriculumData }) {
                 <input
                   type="text"
                   name="name"
-                  maxlength="32"
+                  maxLength="32"
                   value={curriculumData.name}
                   onChange={handleInputChange}
                 />
@@ -347,7 +347,7 @@ function Form({ curriculumData, setCurriculumData }) {
                 <input
                   type="email"
                   name="email"
-                  maxlength="36"
+                  maxLength="36"
                   value={curriculumData.email}
                   onChange={handleInputChange}
                 />
@@ -355,14 +355,14 @@ function Form({ curriculumData, setCurriculumData }) {
                 <input
                   type="tel"
                   name="phone"
-                  maxlength="25"
+                  maxLength="25"
                   value={curriculumData.phone}
                   onChange={handleInputChange}
                 />
                 <label>Bio (maximum 1085 characters):</label>
                 <textarea
                   type="text"
-                  maxlength="1085"
+                  maxLength="1085"
                   name="bio"
                   value={curriculumData.bio}
                   onChange={handleInputChange}

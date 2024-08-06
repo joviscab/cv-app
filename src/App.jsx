@@ -12,6 +12,7 @@ function App() {
     name: "Sorriso Pérez Schmutzler",
     email: "sorriso.perez.schmutzler@dogmail.com",
     phone: "+34 123 456 789",
+    bio: "Sorriso is a delightful Brazilian dog from the picturesque Região dos Lagos in Rio de Janeiro. Known for his charming smile and playful antics, Sorriso brings joy to everyone he meets. His days are filled with adventures on the sandy beaches and vibrant streets of his hometown, where he loves chasing after balls, making new friends, and basking in the warm sunshine.\n\nWith a gentle spirit and a heart full of love, Sorriso is not just a playful companion but also a loyal friend. He has a unique ability to sense when someone needs cheering up, offering a comforting nuzzle or a wag of his tail. Sorriso's zest for life and infectious happiness make him a beloved member of his community, spreading smiles wherever he goes.",
     education: [
       {
         institution: "Bark University",

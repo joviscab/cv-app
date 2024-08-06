@@ -59,11 +59,9 @@ function Form({ curriculumData, setCurriculumData }) {
       setCurriculumData((prevState) => {
         const languages = [...prevState.languages];
         if (editingLanguageIndex !== null) {
-          // Update existing language
           languages[editingLanguageIndex] = languageInput.trim();
-          setEditingLanguageIndex(null); // Reset index after editing
+          setEditingLanguageIndex(null);
         } else {
-          // Add new language
           languages.push(languageInput.trim());
         }
         return {
@@ -356,6 +354,13 @@ function Form({ curriculumData, setCurriculumData }) {
                   type="tel"
                   name="phone"
                   value={curriculumData.phone}
+                  onChange={handleInputChange}
+                />
+                <label>Bio:</label>
+                <textarea
+                  type="text"
+                  name="bio"
+                  value={curriculumData.bio}
                   onChange={handleInputChange}
                 />
                 <label>Upload Image:</label>

@@ -9,6 +9,7 @@ function Curriculum({ data }) {
         </div>
       )}
       <h1 className="nameCV">{data.name}</h1>
+      <p className="bioCV">{data.bio}</p>
       <p className="emailCV">Email: {data.email}</p>
       <p className="phoneCV">Phone: {data.phone}</p>
       <h2 className="workCV">Work Experience</h2>

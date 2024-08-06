@@ -21,10 +21,6 @@
   padding: 0;
 }
 
-ul {
-  /* list-style-type: none; */
-}
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -51,7 +47,6 @@ body {
 }
 
 h1 {
-  font-size: 1.8em;
   line-height: 1.1;
 }
 
@@ -266,54 +261,66 @@ button:focus-visible {
   grid-column: 2 / 4;
   grid-row: 1 / 2;
   text-align: left;
+  margin-top: 10px;
 }
 
 .workCV {
   grid-column: 2 / 4;
-  grid-row: 3 / 4;
+  grid-row: 2 / 3;
   font-size: 18px;
+  padding-left: 50px;
+  padding-top: 10px;
 }
 
 .workContentCV {
   grid-column: 2 / 4;
-  grid-row: 5 / 6;
+  grid-row: 4 / 5;
   font-size: 13px;
+  padding-left: 50px;
 }
 
 .academicCV {
   grid-column: 2 / 4;
   grid-row: 24 / 25;
   font-size: 18px;
+  padding-left: 50px;
 }
 
 .academicContentCV {
   grid-column: 2 / 4;
   grid-row: 26 / 27;
   font-size: 13px;
+  padding-left: 50px;
 }
 
 .professionalCV {
   grid-column: 2 / 3;
-  grid-row: 36 / 38;
+  grid-row: 37 / 39;
   font-size: 17px;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .proContentCV {
   grid-column: 2 / 3;
-  grid-row: 37 / 50;
+  grid-row: 39 / 50;
   font-size: 15px;
+  padding-left: 50px;
 }
 
 .digitalCV {
   grid-column: 3 / 4;
-  grid-row: 36 / 38;
+  grid-row: 37 / 38;
   font-size: 17px;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .digContentCV {
   grid-column: 3 / 4;
-  grid-row: 37 / 50;
+  grid-row: 39 / 50;
   font-size: 15px;
+  padding-left: 50px;
 }

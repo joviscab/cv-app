@@ -79,7 +79,12 @@ function App() {
       return;
     }
 
-    html2canvas(input)
+    html2canvas(input, {
+      useCORS: true,
+      scrollX: 0,
+      scrollY: -window.scrollY,
+      backgroundColor: null,
+    })
       .then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
         const pdf = new jsPDF({

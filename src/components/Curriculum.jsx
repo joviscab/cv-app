@@ -8,15 +8,22 @@ function Curriculum({ data }) {
           <img src={data.image} alt="Profile" className="profile-image" />
         </div>
       )}
-      <h1 className="nameCV">{data.name}</h1>
       <div className="circle"></div>
       <h1 className="aboutCV">About me</h1>
-      <p className="bioCV">{data.bio}</p>
       <h1 className="contactCV">Contact</h1>
+      <p className="bioCV">{data.bio}</p>
       <p className="emailCV">Email: {data.email}</p>
       <p className="phoneCV">
         Phone: <br /> {data.phone}
       </p>
+
+      <h2 className="languageCV">Languages</h2>
+      <ul className="langContentCV">
+        {data.languages.map((language, index) => (
+          <li key={index}>{language}</li>
+        ))}
+      </ul>
+      <h1 className="nameCV">{data.name}</h1>
       <h2 className="workCV">Work Experience</h2>
       <ul className="workContentCV">
         {data.experience.map((exp, index) => (
@@ -53,12 +60,6 @@ function Curriculum({ data }) {
       <ul className="digContentCV">
         {data.digComp.map((dig, index) => (
           <li key={index}>{dig}</li>
-        ))}
-      </ul>
-      <h2 className="languageCV">Languages</h2>
-      <ul className="langContentCV">
-        {data.languages.map((language, index) => (
-          <li key={index}>{language}</li>
         ))}
       </ul>
     </>

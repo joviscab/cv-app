@@ -1,0 +1,78 @@
+.typewriter-wrapper {
+  position: absolute; /* or absolute, based on your layout */
+  top: 15px; /* Adjust as needed */
+  left: 45px; /* Adjust as needed */
+  font-size: 20px; /* Set font size */
+  color: #646cff; /* Text color */
+  padding: 10px 20px; /* Padding around text */
+  border-radius: 10px; /* Rounded corners */
+  z-index: 1000; /* Ensure it appears above other content */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Ensure text doesn’t overflow */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* The typewriter effect with specific line-height */
+.typewriter {
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  border-right: 1px solid rgb(255, 255, 255); /* The typewriter cursor */
+  animation: typing 8s steps(50, end), pause 5s,
+    delete 8s steps(50, end) infinite;
+  line-height: 1; /* Adjust as needed for your font size */
+  height: 40px;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The pause effect */
+@keyframes pause {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The deleting effect */
+@keyframes delete {
+  0%,
+  100% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0);
+  }
+}
+
+/* Apply the blinking effect to the cursor */
+.typewriter::after {
+  content: "";
+  display: inline-block;
+  width: 2px; /* Adjust width of the cursor to be thin */
+  height: 1px; /* Adjust height to match the font size */
+  background-color: rgba(255, 255, 255, 0); /* Cursor color */
+  animation: blink-caret 0.25s step-end infinite;
+}

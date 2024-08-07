@@ -5,6 +5,7 @@ import Curriculum from "../src/components/Curriculum.jsx";
 import { useReactToPrint } from "react-to-print";
 import Footer from "./components/Footer.jsx";
 import DownloadButton from "./components/DownloadButton.jsx";
+import AnimatedTitle from "./components/AnimatedTitle";
 
 function App() {
   const defaultImage = "/img/sorriso.jpg";
@@ -68,7 +69,7 @@ function App() {
       "Mastery of virtual belly rub applications",
       "Paw-sitive feedback loops in digital training",
     ],
-    languages: ["Bark", "Spanish", "Portuguese"],
+    languages: ["Bark (Native)", "Spanish (B2)", "Portuguese (Fluent)"],
     image: defaultImage,
   });
 
@@ -80,6 +81,7 @@ function App() {
 
   return (
     <div className="App">
+      <AnimatedTitle />
       <Form
         curriculumData={curriculumData}
         setCurriculumData={setCurriculumData}

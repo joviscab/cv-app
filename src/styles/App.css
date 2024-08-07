@@ -57,6 +57,7 @@ button {
   transition: border-color 0.25s;
   height: fit-content;
   width: fit-content;
+  margin-right: 10px;
 }
 button:hover {
   border-color: #646cff;
@@ -72,6 +73,7 @@ button:focus-visible {
   width: 100vw;
   grid-template-columns: 25% 75%;
   grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 100px;
 }
 
 .form-section {
@@ -124,6 +126,7 @@ button:focus-visible {
 .form-content textarea {
   width: 100%;
   box-sizing: border-box;
+  margin: 5px;
 }
 
 .form-content ul {

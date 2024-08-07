@@ -10,11 +10,14 @@ function Curriculum({ data }) {
       <h1 className="aboutCV">About me</h1>
       <h1 className="contactCV">Contact</h1>
       <p className="bioCV">{data.bio}</p>
-      <p className="emailCV">Email: {data.email}</p>
-      <p className="phoneCV">
-        Phone: <br /> {data.phone}
-      </p>
-
+      <div className="emailCV">
+        <img className="email-icon" src="/img/email.png" alt="" />
+        {data.email}
+      </div>
+      <div className="phoneCV">
+        <img className="phone-icon" src="/img/phone.png" alt="" />
+        {data.phone}
+      </div>
       <h2 className="languageCV">Languages</h2>
       <ul className="langContentCV">
         {data.languages.map((language, index) => (

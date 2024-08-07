@@ -3,15 +3,17 @@ import { useState } from "react";
 import Form from "../src/components/Form.jsx";
 import Curriculum from "../src/components/Curriculum.jsx";
 import { useReactToPrint } from "react-to-print";
+import Footer from "./components/Footer.jsx";
+import DownloadButton from "./components/DownloadButton.jsx";
 
 function App() {
   const defaultImage = "/img/sorriso.jpg";
 
   const [curriculumData, setCurriculumData] = useState({
     name: "Sorriso Pérez Schmutzler",
-    email: "sorriso.perez.schmutzler@dogmail.com",
+    email: "sorriso@dogmail.com",
     phone: "+34 123 456 789",
-    bio: "Sorriso is a delightful Brazilian dog from the picturesque Região dos Lagos in Rio de Janeiro. Known for his charming smile and playful antics, Sorriso brings joy to everyone he meets. His days are filled with adventures on the sandy beaches and vibrant streets of his hometown, where he loves chasing after balls, making new friends, and basking in the warm sunshine.\n\nWith a gentle spirit and a heart full of love, Sorriso is not just a playful companion but also a loyal friend. He has a unique ability to sense when someone needs cheering up, offering a comforting nuzzle or a wag of his tail. Sorriso's zest for life and infectious happiness make him a beloved member of his community, spreading smiles wherever he goes.",
+    bio: "Sorriso is a delightful Brazilian dog from the picturesque Região dos Lagos in Rio de Janeiro. Known for his charming smile and playful antics, Sorriso brings joy to everyone he meets. His days are filled with adventures on the sandy beaches and vibrant streets of his hometown, where he loves chasing after balls, making new friends, and basking in the warm sunshine.\n\nWith a gentle spirit and a heart full of love, Sorriso is not just a playful companion but also a loyal friend. He has a unique ability to sense when someone needs cheering up, offering a comforting nuzzle or a wag of his tail. Sorriso's zest for life and infectious happiness make him a beloved member of his community.",
     education: [
       {
         institution: "Bark University",
@@ -85,11 +87,12 @@ function App() {
       <div ref={componentRef} id="cv-content" className="curriculum-container">
         <Curriculum data={curriculumData} />
       </div>
-      <div>
-        <button onClick={handlePrint} className="download-pdf-button">
+      <div className="download-pdf-button">
+        <DownloadButton onClick={handlePrint} className="download-pdf-button">
           Download as PDF
-        </button>
+        </DownloadButton>
       </div>
+      <Footer />
     </div>
   );
 }

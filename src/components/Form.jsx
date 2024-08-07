@@ -359,7 +359,7 @@ function Form({ curriculumData, setCurriculumData }) {
                   value={curriculumData.phone}
                   onChange={handleInputChange}
                 />
-                <label>Bio (maximum 850 characters):</label>
+                <label>Bio (maximum 690 characters):</label>
                 <textarea
                   type="text"
                   maxLength="850"

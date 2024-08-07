@@ -23,11 +23,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ffffff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #6369dc;
 }
 
 label {
@@ -76,6 +76,7 @@ button:focus-visible {
   height: 100vh;
   width: 100vw;
   grid-template-columns: 25% 75%;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .form-section {
@@ -209,7 +210,7 @@ button:focus-visible {
 
 .contactCV {
   grid-column: 1 / 2;
-  grid-row: 36 / 37;
+  grid-row: 34 / 35;
   font-size: 18px;
   text-align: center;
   z-index: 2;
@@ -217,32 +218,43 @@ button:focus-visible {
 
 .emailCV {
   grid-column: 1 / 2;
-  grid-row: 37 / 38;
+  grid-row: 36 / 37;
   font-size: 15px;
-  display: flex;
   text-align: center;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .phoneCV {
   grid-column: 1 / 2;
-  grid-row: 39 / 40;
+  grid-row: 38 / 39;
   font-size: 15px;
-  text-align: center;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.phone-icon,
+.email-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .languageCV {
   grid-column: 1 / 2;
-  grid-row: 42 / 43;
+  grid-row: 41 / 42;
   font-size: 18px;
   text-align: center;
   z-index: 2;
+  margin: 0;
 }
 
 .langContentCV {
   grid-column: 1 / 2;
-  grid-row: 44 / 46;
+  grid-row: 43 / 45;
   font-size: 15px;
   display: flex;
   flex-direction: column;
@@ -251,6 +263,7 @@ button:focus-visible {
   margin: 0;
   padding: 0;
   z-index: 2;
+  gap: 11px;
 }
 
 .nameCV {
@@ -319,4 +332,42 @@ button:focus-visible {
   grid-row: 39 / 50;
   font-size: 15px;
   padding-left: 50px;
+}
+
+.download-pdf-button {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+footer {
+  margin-top: 20px;
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+footer,
+footer > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  margin: 0;
+  color: #ccc;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }

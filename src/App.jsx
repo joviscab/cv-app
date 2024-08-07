@@ -88,7 +88,7 @@ function App() {
         <Curriculum data={curriculumData} />
       </div>
       <div className="download-pdf-button">
-        <DownloadButton onClick={handlePrint} className="download-pdf-button">
+        <DownloadButton onClick={handlePrint} className="download-button">
           Download as PDF
         </DownloadButton>
       </div>
